@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         return false
     }
     
-    private let keypads: [String] = ["1","2","3","4","5","6","7","8","9","0","000","⌫"]
+    private let keypads: [String] = ["1","2","3","4","5","6","7","8","9","","0","⌫"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,17 +76,20 @@ extension ViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeypadCell", for: indexPath) as? KeypadCell else {
             return UICollectionViewCell()
         }
+        cell.layer.cornerRadius = 10
+        cell.setup(pad: keypad)
+        cell.padLabel.tag = indexPath.row
         if keypad == "⌫" {
             cell.backgroundColor = UIColor(white: 1, alpha: 0.0)
             let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(backspaceHold))
             cell.padLabel.addGestureRecognizer(longGesture)
+            cell.padLabel.addTarget(self, action: #selector(padClicked), for: .touchUpInside)
+        } else if keypad == "" {
+            cell.backgroundColor = UIColor(white: 1, alpha: 0.0)
         } else {
             cell.backgroundColor = UIColor(white: 1, alpha: 1.0)
+            cell.padLabel.addTarget(self, action: #selector(padClicked), for: .touchUpInside)
         }
-        cell.layer.cornerRadius = 10
-        cell.setup(pad: keypad)
-        cell.padLabel.tag = indexPath.row
-        cell.padLabel.addTarget(self, action: #selector(padClicked), for: .touchUpInside)
         return cell
     }
     
@@ -105,7 +108,7 @@ extension ViewController: UICollectionViewDataSource {
             return
         }
         textField.deleteBackward()
-        let generator = UIImpactFeedbackGenerator(style: .light)
+        let generator = UIImpactFeedbackGenerator(style: .soft)
         generator.impactOccurred()
     }
     
@@ -119,7 +122,7 @@ extension ViewController: UICollectionViewDataSource {
         } else {
             textField.text?.append(contentsOf: pad)
         }
-        let generator = UIImpactFeedbackGenerator(style: .light)
+        let generator = UIImpactFeedbackGenerator(style: .soft)
         generator.impactOccurred()
     }
     
