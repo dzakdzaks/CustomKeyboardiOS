@@ -18,7 +18,7 @@
 		A4160F742754A8D30018243A /* CustomKeyboardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4160F732754A8D30018243A /* CustomKeyboardUITestsLaunchTests.swift */; };
 		A4160F812754B6EB0018243A /* KeypadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4160F802754B6EB0018243A /* KeypadCell.swift */; };
 		A4160F832755CFAE0018243A /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4160F822755CFAD0018243A /* PulseAnimation.swift */; };
-		A4160F85275612C00018243A /* DisabledUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4160F84275612C00018243A /* DisabledUITextField.swift */; };
+		A4160F8727572E8E0018243A /* RippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4160F8627572E8E0018243A /* RippleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		A4160F732754A8D30018243A /* CustomKeyboardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeyboardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A4160F802754B6EB0018243A /* KeypadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadCell.swift; sourceTree = "<group>"; };
 		A4160F822755CFAD0018243A /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
-		A4160F84275612C00018243A /* DisabledUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledUITextField.swift; sourceTree = "<group>"; };
+		A4160F8627572E8E0018243A /* RippleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 				A4160F5E2754A8D30018243A /* Info.plist */,
 				A4160F802754B6EB0018243A /* KeypadCell.swift */,
 				A4160F822755CFAD0018243A /* PulseAnimation.swift */,
-				A4160F84275612C00018243A /* DisabledUITextField.swift */,
+				A4160F8627572E8E0018243A /* RippleButton.swift */,
 			);
 			path = CustomKeyboard;
 			sourceTree = "<group>";
@@ -270,9 +270,9 @@
 				A4160F552754A8CF0018243A /* ViewController.swift in Sources */,
 				A4160F812754B6EB0018243A /* KeypadCell.swift in Sources */,
 				A4160F512754A8CF0018243A /* AppDelegate.swift in Sources */,
+				A4160F8727572E8E0018243A /* RippleButton.swift in Sources */,
 				A4160F832755CFAE0018243A /* PulseAnimation.swift in Sources */,
 				A4160F532754A8CF0018243A /* SceneDelegate.swift in Sources */,
-				A4160F85275612C00018243A /* DisabledUITextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

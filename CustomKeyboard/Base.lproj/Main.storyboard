@@ -46,8 +46,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jM1-PW-0Kt">
-                                                    <rect key="frame" x="6" y="6" width="116" height="116"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jM1-PW-0Kt" customClass="RippleButton" customModule="CustomKeyboard" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Label">
@@ -56,14 +56,14 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jM1-PW-0Kt" firstAttribute="leading" secondItem="LVi-Qz-byi" secondAttribute="leading" constant="6" id="DKb-cF-nfv"/>
-                                                <constraint firstAttribute="trailing" secondItem="jM1-PW-0Kt" secondAttribute="trailing" constant="6" id="JAl-Pf-b8P"/>
-                                                <constraint firstAttribute="bottom" secondItem="jM1-PW-0Kt" secondAttribute="bottom" constant="6" id="PLn-f4-YJ7"/>
-                                                <constraint firstItem="jM1-PW-0Kt" firstAttribute="top" secondItem="LVi-Qz-byi" secondAttribute="top" constant="6" id="qYL-EC-Z8I"/>
+                                                <constraint firstItem="jM1-PW-0Kt" firstAttribute="leading" secondItem="LVi-Qz-byi" secondAttribute="leading" id="DKb-cF-nfv"/>
+                                                <constraint firstAttribute="trailing" secondItem="jM1-PW-0Kt" secondAttribute="trailing" id="JAl-Pf-b8P"/>
+                                                <constraint firstAttribute="bottom" secondItem="jM1-PW-0Kt" secondAttribute="bottom" id="PLn-f4-YJ7"/>
+                                                <constraint firstItem="jM1-PW-0Kt" firstAttribute="top" secondItem="LVi-Qz-byi" secondAttribute="top" id="qYL-EC-Z8I"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="padLabel" destination="jM1-PW-0Kt" id="xP4-NE-Afa"/>
+                                            <outlet property="padLabel" destination="jM1-PW-0Kt" id="BLl-NR-nT3"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -84,7 +84,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cce-Fh-QXR" customClass="DisabledUITextField" customModule="CustomKeyboard" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cce-Fh-QXR">
                                 <rect key="frame" x="16" y="64" width="382" height="34"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -112,7 +112,7 @@
                         <outlet property="buttonBottomConstraint" destination="Nj6-gw-zaw" id="CF5-9z-29G"/>
                         <outlet property="collectionViewPad" destination="mXb-Te-Vnz" id="iRc-oO-1c7"/>
                         <outlet property="collectionViewPadHeight" destination="PvV-Vp-26r" id="JNO-eX-YBK"/>
-                        <outlet property="textField" destination="cce-Fh-QXR" id="1af-jE-H80"/>
+                        <outlet property="textField" destination="cce-Fh-QXR" id="16K-fl-iJI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -120,6 +120,11 @@
             <point key="canvasLocation" x="18.840579710144929" y="67.633928571428569"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="jM1-PW-0Kt">
+            <size key="intrinsicContentSize" width="52" height="36"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

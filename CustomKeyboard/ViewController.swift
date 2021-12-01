@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionViewPad: UICollectionView!
     @IBOutlet weak var collectionViewPadHeight: NSLayoutConstraint!
     @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var textField: DisabledUITextField!
+    @IBOutlet weak var textField: UITextField!
     
     var timer: Timer?
     
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         return false
     }
     
-    private let keypads: [String] = ["1","2","3","4","5","6","7","8","9","","0","⌫"]
+    private let keypads: [String] = ["1","2","3","4","5","6","7","8","9","0","000","⌫"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +85,7 @@ extension ViewController: UICollectionViewDataSource {
             cell.padLabel.addGestureRecognizer(longGesture)
             cell.padLabel.addTarget(self, action: #selector(padClicked), for: .touchUpInside)
         } else if keypad == "" {
+            cell.padLabel.isUserInteractionEnabled = false
             cell.backgroundColor = UIColor(white: 1, alpha: 0.0)
         } else {
             cell.backgroundColor = UIColor(white: 1, alpha: 1.0)
@@ -105,6 +106,8 @@ extension ViewController: UICollectionViewDataSource {
     
     @objc func handleTimer(timer: Timer) {
         guard let text = textField.text, !text.isEmpty else {
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
             return
         }
         textField.deleteBackward()
@@ -116,6 +119,8 @@ extension ViewController: UICollectionViewDataSource {
         let pad = keypads[sender.tag]
         if pad == "⌫" {
             guard let text = textField.text, !text.isEmpty else {
+                let generator = UIImpactFeedbackGenerator(style: .light)
+                generator.impactOccurred()
                 return
             }
             textField.deleteBackward()

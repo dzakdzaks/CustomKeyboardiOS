@@ -46,31 +46,12 @@ class PulseAnimation: CALayer {
         }
     }
     
-    func setupPressedAnimation() {
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-            self.setupPressedAnimationGroup()
-            DispatchQueue.main.async {
-                self.add(self.animationGroup, forKey: "pulse")
-            }
-        }
-    }
-    
     private func setupTapAnimationGroup() {
         self.animationGroup.duration = animationDuration
         self.animationGroup.repeatCount = numberOfPulse
         let defaultCurve = CAMediaTimingFunction(name: .default)
         self.animationGroup.timingFunction = defaultCurve
         self.animationGroup.animations = [scaleTapAnimation(), createTapOpacityAnimation()]
-    }
-    
-    private func setupPressedAnimationGroup() {
-        self.animationGroup.fillMode = .forwards
-        self.animationGroup.isRemovedOnCompletion = false
-        self.animationGroup.duration = animationDuration
-        self.animationGroup.repeatCount = numberOfPulse
-        let defaultCurve = CAMediaTimingFunction(name: .default)
-        self.animationGroup.timingFunction = defaultCurve
-        self.animationGroup.animations = [scalePressedAnimation(), createPressedOpacityAnimation()]
     }
     
     private func scaleTapAnimation() -> CABasicAnimation {
@@ -81,27 +62,12 @@ class PulseAnimation: CALayer {
         return scaleAnimation
     }
     
-    private func scalePressedAnimation() -> CABasicAnimation {
-        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale.xy")
-        scaleAnimation.fromValue = NSNumber(value: 0)
-        scaleAnimation.toValue = NSNumber(value: 1)
-        scaleAnimation.duration = animationDuration
-        return scaleAnimation
-    }
     
     private func createTapOpacityAnimation() -> CAKeyframeAnimation {
         let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
         opacityAnimation.duration = animationDuration
         opacityAnimation.keyTimes = [0, 0.3, 1]
         opacityAnimation.values = [0.4, 0.8, 0]
-        return opacityAnimation
-    }
-    
-    private func createPressedOpacityAnimation() -> CAKeyframeAnimation {
-        let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
-        opacityAnimation.duration = animationDuration
-        opacityAnimation.keyTimes = [0, 0.3, 1]
-        opacityAnimation.values = [0.4, 0.6, 0.8]
         return opacityAnimation
     }
     
